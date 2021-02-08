@@ -376,9 +376,9 @@ h2, p { color: #666666; }
 }
 
 #tm-fixed-header-bg { height: 450px; }
-.tm-fixed-header-1 { background-image: url(../img/video-detail-1.jpg); }
+/*.tm-fixed-header-1 { background-image: url(../img/video-detail-1.jpg); }
 .tm-fixed-header-2 { background-image: url(../img/about-1.jpg); }
-.tm-fixed-header-3 { background-image: url(../img/contact-1.jpg); }
+.tm-fixed-header-3 { background-image: url(../img/contact-1.jpg); }*/
 
 video {
   width: 100%;
@@ -446,7 +446,7 @@ video {
   -moz-appearance: none;
   background-position: right 15px center;
   background-repeat: no-repeat;
-  background-image: url(../img/select-arrow.png);
+  /*background-image: url(../img/select-arrow.png);*/
   padding: 14px 20px;
   padding-right: 20px;
   color: #666;
