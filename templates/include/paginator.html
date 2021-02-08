@@ -1,0 +1,36 @@
+{% load static %}
+<!-- Catalog Paging Buttons -->
+<div class="row" style = "margin-bottom: 90px;">
+	<div class="col-12 d-flex justify-content-between align-items-center tm-paging-col"  style="flex-wrap: wrap;display: flex!important;">
+	
+		{% if page_obj.has_previous %}
+			<a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary tm-btn-prev" style = "min-width:140px;">Previous</a>
+		{% else %}
+			<a href="javascript:void(0);" class="btn btn-primary tm-btn-prev disabled" style = "min-width:140px;">Previous</a>
+		{% endif %}
+		
+
+		{% if page_obj.paginator.num_pages > 10 %}
+			
+		{% else %}
+			<div class="tm-paging d-flex">
+				{% for number in page_obj.paginator.page_range %}
+					{% if number == page_obj.number %}
+						<a href="?page={{ number }}" class="tm-paging-link active">{{ number }}</a>				
+					{% else %}
+						<a href="?page={{ number }}" class="tm-paging-link">{{ number }}</a>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif%}
+		
+		
+		{% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary tm-btn-next" style = "min-width:140px;">Next</a>	
+		{% else %}
+			<a href="javascript:void(0);" class="btn btn-primary tm-btn-next disabled" style = "min-width:140px;">Next</a>	
+		{% endif %}
+		
+	</div>            
+</div>
+

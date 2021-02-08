@@ -1,0 +1,12 @@
+<script>
+	$(document).ready(function() {
+		$('.tm-category-link').click(function(e) {
+			e.preventDefault();
+			if($(this).hasClass('active')) {
+				$(this).toggleClass('active',false);
+			} else {
+				$(this).toggleClass('active',true);
+			}
+		});
+	});
+</script>

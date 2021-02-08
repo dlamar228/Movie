@@ -1,0 +1,7 @@
+.plyrtitle {
+	position:absolute;
+	z-index:9999999999999;
+	top:0;
+	left:0;
+	padding:20px;
+}

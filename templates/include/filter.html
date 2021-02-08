@@ -1,0 +1,75 @@
+{% load movie_tags %}
+
+<div class = "row" style = "justify-content: space-between;" id = "filter-block">
+	<h2 class="tm-page-title mb-4">Filter block</h2>
+</div>
+
+<div class="row" style = "justify-content: space-between;">
+
+	<div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4" >
+		
+		<div class="mb-4" style="max-width: 100%;">
+			<div class="mb-4" >
+				<div class="p-5 tm-bg-gray">
+					<h2 class="tm-page-title  mb-4">Countres:</h2>
+					<ul class="nav tm-list" id = "country">
+						{% get_countres as countres  %}
+						{% for country in countres %}
+							<li class="nav-item tm-item"><a href="#" class="nav-link tm-link " id = '{{ country.id }}'>{{country.name}}</a></li>
+						{% endfor %}				
+					</ul>
+				</div>                        
+			</div>
+		</div>
+
+		<div class="mb-4" style="max-width: 100%;">
+			<div class="mb-4">
+				<div class="p-5 tm-bg-gray">
+					<h2 class="tm-page-title  mb-4">Years:</h2>
+					<ul class="nav tm-list" id = "year">
+						{% get_years as years  %}
+						{% for year in years %}
+							<li class="nav-item tm-item"><a href="#" class="nav-link tm-link " id = '{{ year }}'>{{year}}</a></li>
+						{% endfor %}				
+					</ul>
+				</div>                        
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+
+		<div class="mb-4" style="max-width: 100%;">
+			<div class="p-5 tm-bg-gray">
+				<h2 class="tm-page-title  mb-4">Genres:</h2>
+				<ul class="nav tm-list" id = "genre">
+					{% get_geners as geners  %}
+					{% for genre in geners %}
+						<li class="nav-item tm-item"><a href="#" class="nav-link tm-link " id = '{{ genre.id }}'>{{genre.name}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>                        
+		</div>
+
+		<div class="mb-4" style="max-width: 100%;">
+			<div class="p-5 tm-bg-gray" style = "justify-content: space-between;">
+				<a href="#" class="tm-paging-link" id = "filter">Run Filter</a>
+			</div>                        
+		</div>
+	</div>
+</div>
+
+<div class="row" id = "movie-block">
+	<div class="col-12">	
+		<div class = "row" style = "justify-content: space-between;">
+			<h2 class="tm-page-title mb-4">Movie block</h2>
+			<div class="tm-page-title mb-4">
+				<div class="tm-text-primary">
+					Page <input id = "pageInput" type="number" value="{{page_obj.number}}" min = "1" max = "{{page_obj.paginator.num_pages}}" class="tm-input-paging tm-text-primary" style = "width:100px;text-align: center"> 
+					of {{page_obj.paginator.num_pages}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

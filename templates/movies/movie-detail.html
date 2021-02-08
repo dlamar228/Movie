@@ -1,0 +1,110 @@
+{% extends 'home.html'%}
+{% load static %}
+{% load filters %}
+{% load jsonify %}
+
+{% block content %}
+<!-- Page content -->
+<div class="container-fluid">
+	<div class="mx-auto tm-content-container">
+		<main>
+			<div id = 'replace'></div>
+			<div class="row mb-5 pb-4">
+				<div class="col-12">
+					<!-- Video player 1422x800 -->
+					{% include 'include/plyr.html' %}
+				</div>
+			</div>
+
+			<div class="row mt-5 pt-3">	
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+
+					<div class="mb-4" style="max-width: 100%;">
+						<div class="p-5 tm-bg-gray">
+							<h3 class="mb-4">{{ movie.name }}</h3>
+							<div class="mb-5 d-flex" style = "flex-wrap:wrap;display:flex!important;">
+
+								{% if movie.country.all %}
+								{% for country in movie.country.all %}
+								<a href="#" class="tm-paging-link">{{ country.name }}</a>
+								{% endfor %}
+								{% endif %}
+
+								<a href="#" class="tm-paging-link">{{ movie.year }}</a>
+								{% for season in movie.season.all %}
+									<a href="#" class="tm-paging-link">{{ season.season }}</a>
+								{% endfor %}
+							</div>   
+						</div>                    
+					</div>
+
+					{% if movie.genres.all %}	
+					<div class="mb-4" style="max-width: 100%;">
+						<div class="p-5 tm-bg-gray">
+							<h3 class="mb-4">Genres</h3>
+							<div class="mb-5 d-flex" style = "flex-wrap:wrap;display:flex!important;">
+								{% for genre in movie.genres.all %}
+								<a href="#" class="tm-paging-link">{{ genre.name }}</a>
+								{% endfor %}
+							</div>  
+						</div>                   
+					</div>
+					{% endif %}
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
+					{% if movie.producers.all %}	
+					<div class="mb-4" style="max-width: 100%;">
+						<div class="p-5 tm-bg-gray">
+							<h3 class="mb-4">Producers</h3>
+							<div class="mb-5 d-flex" style = "flex-wrap:wrap;display:flex!important;">
+								{% for producer in movie.producers.all %}
+								<a href="#" class="tm-paging-link">{{ producer.name }}</a>
+								{% endfor %}
+							</div>  
+						</div>                   
+					</div>
+					{% endif %}
+
+					{% if  movie.actors.all %}
+					<div class="mb-4" style="max-width: 100%;">
+						<div class="p-5 tm-bg-gray">
+							<h3 class="mb-4">Actors</h3>
+							<div class="mb-5 d-flex" style = "flex-wrap:wrap;display:flex!important;">
+								{% for actor in movie.actors.all %}
+								<a href="#" class="tm-paging-link">{{ actor.name }}</a>
+								{% endfor %}
+							</div>   
+						</div>                    
+					</div>
+					{% endif %}
+				</div>
+
+			</div> <!-- row -->
+			{% if movie.description_detail %}
+			<div class="row mb-5 pb-5">
+				<div class="col-xl-4 col-lg-5" style="max-width: 100%;flex: 0 0 100%;">
+					<!-- Video description -->
+					<div class="tm-bg-gray tm-box">
+						<h3 class="mb-4">Description</h3>
+						<p class="mb-4">{{movie.description_detail}}</p>
+					</div>							
+				</div>
+			</div>		
+			{% endif %}	
+
+		</main>
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %} 
+
+<script src={% static 'plyr/dist/plyr.js' %}></script>
+<script src={% static 'js/bootstrap-select.min.js' %}></script>
+<script src={% static 'js/video.js' %}></script>
+<script>
+	Video.InitVideo(new Plyr('#player'),'{{ param_s|safe }}','{{ param_f|safe }}','{{ param_t|safe }}');
+</script>
+{% endblock script %}

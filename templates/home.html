@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'include/head_settings.html' %}
+    <body>
+        <div class="tm-page-wrap mx-auto">
+
+            {% block header %} {% include 'include/header.html' %} {% endblock header %}     
+
+            <div class="container-fluid">
+                <div id="content" class="mx-auto tm-content-container">
+                
+                    <main id = "main">
+                        {% block content %} {% endblock content %}
+                    </main>
+                    
+                    {% block footer %} {% include 'include/footer.html' %} {% endblock footer %}
+                </div> <!-- tm-content-container -->
+            </div>
+
+        </div> <!-- .tm-page-wrap -->
+
+        {% include 'include/scripts_home.html' %}
+        {% include 'include/scripts_header.html' %}
+        
+        {% block script %} 
+        {% endblock script %}
+        
+    </body>
+
+</html>
