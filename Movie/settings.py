@@ -90,13 +90,20 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
+'''
 
 DATABASES = {
-      'default': dj_database_url.config(
-          default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
-      )
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'HerokuDB',
+        'USER' : 'postgres',
+        'PASSWORD' : '2073266ljv',
+        'HOST' : '127.0.0.1',
+        'PORT' : '5432',
+    }
+}
+
   
 # Heroku: Update database configuration from $DATABASE_URL.
 
