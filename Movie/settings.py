@@ -107,8 +107,8 @@ DATABASES = {
 }
 
 #del
-DATABASES['default'] = dj_database_url.config()
-DATABASES['users'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.parse("postgres://tedmsutzpqlncg:2c32238c2f45f947c307b61bbb4c029c766264e21ee077e02dd46ef4cdff9f0b@ec2-52-22-161-59.compute-1.amazonaws.com:5432/d3e2bdufqbq4ll")
+DATABASES['users'] = dj_database_url.parse("postgres://uwrccnloxtwjej:d4a8cf7097ded563fc4df41e5ddaed54b6a681d077de5666dcd5269b84a0fe2a@ec2-54-164-241-193.compute-1.amazonaws.com:5432/dabom1jqjctu7c")
 
 
 # Password validation
