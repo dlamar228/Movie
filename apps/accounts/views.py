@@ -61,10 +61,11 @@ class UserRegistrtionView(FormView):
         
         return super(UserRegistrtionView,self).form_valid(form)
 
-    def save_user(self,cleaned_data): 
+    def save_user(self,cleaned_data):
         User.objects.create_user(username=cleaned_data['login'],
                                  email=cleaned_data['email'],
-                                 password=cleaned_data['password_first'])
+                                 password=cleaned_data['password_first']
+                                )
 
 
     def form_invalid(self,form):

@@ -84,14 +84,7 @@ WSGI_APPLICATION = 'Movie.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-'''
+DATABASE_ROUTERS = ['accounts.router.UsersRouter']
 
 DATABASES = {
     'default': {
@@ -101,14 +94,17 @@ DATABASES = {
         'PASSWORD' : '2073266ljv',
         'HOST' : '127.0.0.1',
         'PORT' : '5432',
+    },
+
+    'users': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'HerokuDBUsers',
+        'USER' : 'postgres',
+        'PASSWORD' : '2073266ljv',
+        'HOST' : '127.0.0.1',
+        'PORT' : '5432',
     }
 }
-
-  
-# Heroku: Update database configuration from $DATABASE_URL.
-
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
