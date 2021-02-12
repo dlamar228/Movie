@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'HerokuDB',
         'USER' : 'postgres',
         'PASSWORD' : '2073266ljv',
-        'HOST' : '127.0.0.1',
+        'HOST' : 'localhost',
         'PORT' : '5432',
     },
 
@@ -101,10 +101,14 @@ DATABASES = {
         'NAME': 'HerokuDBUsers',
         'USER' : 'postgres',
         'PASSWORD' : '2073266ljv',
-        'HOST' : '127.0.0.1',
+        'HOST' : 'localhost',
         'PORT' : '5432',
     }
 }
+
+#del
+DATABASES['default'] = dj_database_url.config()
+DATABASES['users'] = dj_database_url.config()
 
 
 # Password validation
